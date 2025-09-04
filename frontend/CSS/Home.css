@@ -1,0 +1,120 @@
+/*reset*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body { 
+    background-color:black;
+    color:white;
+    line-height: 1.6;
+ }
+
+/*navbar*/
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background-color: #c5ab17;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img{
+    width: 70px;
+    border-radius: 50%;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition:  0.3s;
+}
+
+.nav-links li a:hover, 
+.nav-links li a.active {
+    color: white;
+}
+
+/*mobile menu*/
+.menu-toggle{
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/*carousel section*/
+.carousel{
+    text-align: center;
+    padding: 60px 20px ;
+    background-image: url(/frontend/IMAGES/carousel\ background.jpeg);
+    border-radius: 15px;
+    max-width: 2000px;
+    margin: 40px auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-container{
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-slide{
+    display: none;
+    padding: 20px;
+    animation: fade 1s ease-in-out ; 
+}
+
+.carousel-slide.active{
+    display: block;
+}
+
+.carousel-slide h2{
+    font-size: 28px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.carousel-slide p{
+    font-size: 16px;
+    color: white;
+}
+
+/*Dots*/
+.carousel-dots{
+    margin-top: 15px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #c5ab17;
+}
+
+/*fade animation*/
+@keyframes fade {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
