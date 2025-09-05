@@ -7,7 +7,7 @@
 }
 
 body { 
-    background-color:black;
+    background-color: #000000;
     color:white;
     line-height: 1.6;
  }
@@ -17,17 +17,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 10%;
+    padding: 20px 10%;
     background-color: #c5ab17;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: fixed;
+    position: relative;
     width: 100%;
     top: 0;
     z-index: 100;
 }
 
 .logo img{
-    width: 70px;
+    width: 100px;
     border-radius: 50%;
 }
 
@@ -61,7 +61,7 @@ body {
     text-align: center;
     padding: 60px 20px ;
     background-image: url(/frontend/IMAGES/carousel\ background.jpeg);
-    border-radius: 15px;
+    border-radius: 50px;
     max-width: 2000px;
     margin: 40px auto;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -117,4 +117,35 @@ body {
 @keyframes fade {
     from {opacity: 0.4;}
     to {opacity: 1;}
+}
+
+/*responsive for carousel*/
+@media (max-width: 600px){
+    .carousel-slide h2{
+        font-size: 22px;
+    }
+    .carousel-slide p{
+        font-size: 14px;
+    }
+}
+
+/*About Section*/
+.about{
+    display: flex;
+    gap: 40px;
+    padding: 80px 10%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.about-text h2{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/*projects sections*/
+.projects{
+    text-align: center;
+    padding: 80px 10%;
+    
 }
