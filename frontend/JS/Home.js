@@ -6,6 +6,49 @@ menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
 });
 
+const slides = document.querySelectorAll(".carousel-slide");
+const dots = document.querySelectorAll(".dot");
+let currentIndex = 0;
+let autoSlideInterval;
+
+// Show a specific slide
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    dots[i].classList.remove("active");
+  });
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+
+  currentIndex = index;
+}
+
+// Go to the next slide automatically
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}
+
+// Start auto-switching every 4 seconds
+function startAutoSlide() {
+  autoSlideInterval = setInterval(nextSlide, 4000);
+}
+
+// When clicking dots, jump to that slide
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    showSlide(i);
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  });
+});
+
+// Initialize carousel
+showSlide(currentIndex);
+startAutoSlide();
+
+
 const smeBtn = document.getElementById("smeBtn");
 const corpBtn = document.getElementById("corpBtn");
 const smesSection = document.querySelector(".smes");
