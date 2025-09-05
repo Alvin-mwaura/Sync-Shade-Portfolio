@@ -59,7 +59,7 @@ body {
 /*carousel section*/
 .carousel{
     text-align: center;
-    padding: 60px 20px ;
+    padding: 90px 30px ;
     background-image: url(/frontend/IMAGES/carousel\ background.jpeg);
     background-size: cover;
     border-radius: 50px;
@@ -137,6 +137,7 @@ body {
     padding: 80px 10%;
     flex-wrap: wrap;
     align-items: center;
+    background-color: #202020;
 }
 
 .about-text h2{
@@ -449,4 +450,112 @@ body {
     .partner-image img {
         max-width: 100%;
    }
+}
+
+/* FOOTER CONTAINER*/
+footer {
+    background: #0d0d0d; 
+    color: #f5f5f5;
+    padding: 40px 20px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+/* COPYRIGHT TEXT */
+footer > p {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+}
+
+/* SOCIAL MEDIA ICONS */
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.social-media a img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    padding: 6px;
+    box-shadow: 0 0 8px rgba(0, 216, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.social-media a img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(0, 216, 255, 0.7);
+}
+
+/* CONTACT SECTION */
+.Contact-us {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.Contact-us p:first-child {
+    font-weight: bold;
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+/* Email Link Styling */
+.Contact-us a {
+    color: #00d8ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.Contact-us a:hover {
+    color: #00aaff;
+    text-shadow: 0 0 8px rgba(0, 216, 255, 0.8);
+}
+
+/* RESPONSIVE DESIGN*/
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    .social-media a img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .Contact-us {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 25px 10px;
+    }
+
+    footer > p {
+        font-size: 12px;
+    }
+
+    .social-media a img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .Contact-us {
+        font-size: 12px;
+    }
 }
