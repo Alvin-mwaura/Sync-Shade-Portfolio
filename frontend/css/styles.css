@@ -60,7 +60,7 @@ body {
 .carousel{
     text-align: center;
     padding: 90px 30px ;
-    background-image: url(/frontend/IMAGES/carousel\ background.jpeg);
+    background-image: url(/frontend/images/carousel\ background.jpeg);
     background-size: cover;
     border-radius: 50px;
     max-width: 2000px;
@@ -150,7 +150,7 @@ body {
 .projects{
     text-align: center;
     padding: 80px 10%;
-    background-image: url(/frontend/IMAGES/project\ background.jpeg);
+    background-image: url(/frontend/images/project\ background.jpeg);
     background-size: cover;
 }
 
