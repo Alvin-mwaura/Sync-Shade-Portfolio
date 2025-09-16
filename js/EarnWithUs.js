@@ -77,23 +77,64 @@ document.addEventListener("DOMContentLoaded", function () {
   // ID = 8–9 digits
   enforceDigits(idInput, idError, "ID number", 8, 9);
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("earn-form");
+  const message = document.getElementById("form-message");
+  const submitBtn = form.querySelector("button");
 
-const submitBtn = document.getElementById("submit-btn");
+  const phoneInput = document.getElementById("phone");
+  const idInput = document.getElementById("id");
+  const emailInput = document.getElementById("email");
 
-// Function to check overall form validity
-function checkFormValidity() {
-  const isPhoneValid = /^\d{10}$/.test(phoneInput.value);
-  const isIdValid = /^\d{8,9}$/.test(idInput.value);
-  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-  if (isPhoneValid && isIdValid && isEmailValid) {
-    submitBtn.disabled = false;
-  } else {
+    // Validate inputs
+    const phoneValid = /^\d{10}$/.test(phoneInput.value);
+    const idValid = /^\d{8,9}$/.test(idInput.value);
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+
+    if (!phoneValid) {
+      message.innerHTML = "📞 Phone number must be exactly 10 digits.";
+      message.style.color = "red";
+      return;
+    }
+    if (!idValid) {
+      message.innerHTML = "🆔 ID number must be 8 or 9 digits.";
+      message.style.color = "red";
+      return;
+    }
+    if (!emailValid) {
+      message.innerHTML = "📧 Please enter a valid email address.";
+      message.style.color = "red";
+      return;
+    }
+
+    // Save button text
+    const originalText = submitBtn.innerHTML;
+
+    // Show loading state
     submitBtn.disabled = true;
-  }
-}
+    submitBtn.innerHTML = `<span class="spinner"></span> Sending...`;
 
-// Run validation when fields change
-phoneInput.addEventListener("input", checkFormValidity);
-idInput.addEventListener("input", checkFormValidity);
-emailInput.addEventListener("input", checkFormValidity);
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      message.innerHTML = "✅ Thank you, we’ll contact you soon!";
+      message.style.color = "lightgreen";
+      form.reset();
+    } else {
+      message.innerHTML = "❌ Oops! Something went wrong. Please try again.";
+      message.style.color = "red";
+    }
+
+    // Reset button
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  });
+});
