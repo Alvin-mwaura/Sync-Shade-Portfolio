@@ -46,33 +46,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const phoneError = document.getElementById("phone-error");
   const idError = document.getElementById("id-error");
 
-  // Allow only numbers while typing
-  function onlyNumbers(input, errorElement, fieldName, minLen = null, maxLen = null) {
+  function enforceDigits(input, errorElement, fieldName, minLen, maxLen) {
     input.addEventListener("input", () => {
-      input.value = input.value.replace(/[^0-9]/g, ""); // remove non-numbers
+      // Remove non-digits
+      input.value = input.value.replace(/\D/g, "");
+
+      // Trim to max length
+      if (maxLen) {
+        input.value = input.value.slice(0, maxLen);
+      }
 
       // Validation check
-      if (minLen && maxLen) {
-        if (input.value.length < minLen || input.value.length > maxLen) {
-          errorElement.style.display = "block";
-          errorElement.textContent = `${fieldName} must be ${minLen}-${maxLen} digits.`;
+      if (input.value.length < minLen || input.value.length > maxLen) {
+        errorElement.style.display = "block";
+
+        if (minLen === maxLen) {
+          errorElement.textContent = `${fieldName} must be exactly ${minLen} digits.`;
         } else {
-          errorElement.style.display = "none";
+          errorElement.textContent = `${fieldName} must be ${minLen}-${maxLen} digits.`;
         }
       } else {
-        if (input.value.length === 0) {
-          errorElement.style.display = "block";
-          errorElement.textContent = `${fieldName} is required.`;
-        } else {
-          errorElement.style.display = "none";
-        }
+        errorElement.style.display = "none";
       }
     });
   }
 
-  // Phone = 7–15 digits
-  onlyNumbers(phoneInput, phoneError, "Phone number", 7, 15);
+  // Phone = exactly 10 digits
+  enforceDigits(phoneInput, phoneError, "Phone number", 10, 10);
 
-  // ID = any digits (at least 1)
-  onlyNumbers(idInput, idError, "ID number");
+  // ID = 8–9 digits
+  enforceDigits(idInput, idError, "ID number", 8, 9);
 });
