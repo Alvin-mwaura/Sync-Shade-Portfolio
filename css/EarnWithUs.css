@@ -129,6 +129,10 @@ header {
   background: #ffeaea;
   color: #c62828;
   border: 1px solid #ef9a9a;
+  font-size: 14px;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  display: none; /* hidden by default */
 }
 
 /* Show message */
