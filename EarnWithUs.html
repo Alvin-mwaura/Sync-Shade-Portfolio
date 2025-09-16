@@ -43,9 +43,11 @@
       <form id="earn-form" action="https://formspree.io/f/xyzdqzqg" method="POST">
         <input type="text" name="first_name" placeholder="First Name" required>
         <input type="text" name="last_name" placeholder="Last Name" required>
-        <input type="text" name="phone" placeholder="Phone Number" pattern="[0-9]{7,15}" title="Enter numbers only (7-15 digits)" required>
+        <input type="text" id="phone" name="phone" placeholder="Phone Number (10 Digits)" maxlength="10" required>
+        <span id="phone-error" class="error-message"></span>
         <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="id" placeholder="ID Number" pattern="[0-9]+" title="Enter numbers only" required>
+        <input type="text" id="id-number" name="id" placeholder="ID Number (8-9 Digits)" maxlength="9" required>
+        <span id="id-error" class="error-message"></span>
         <button type="submit">Submit Application</button>
 
         <!-- Messages -->
