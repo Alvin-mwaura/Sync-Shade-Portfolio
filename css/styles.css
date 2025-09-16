@@ -49,6 +49,21 @@ body {
     color: white;
 }
 
+/* Earn With Us Button */
+.earn-btn {
+  background: #000;
+  color: #c5ab17 !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.earn-btn:hover {
+  background: #fff;
+  color: #000 !important;
+}
+
 /*mobile menu*/
 .menu-toggle{
     display: none;
@@ -56,11 +71,35 @@ body {
     cursor: pointer;
 }
 
+/* NAVBAR RESPONSIVENESS */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px; /* below navbar */
+    right: 0;
+    background: #c5ab17;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none; /* hidden by default */
+  }
+
+  .nav-links.active {
+    display: flex; /* show when toggled */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
 /*carousel section*/
 .carousel{
     text-align: center;
     padding: 90px 30px ;
-    background-image: url(/frontend/IMAGES/carousel\ background.jpeg);
+    background-image: url(../images/carousel\ background.jpeg);
     background-size: cover;
     border-radius: 50px;
     max-width: 2000px;
@@ -150,7 +189,7 @@ body {
 .projects{
     text-align: center;
     padding: 80px 10%;
-    background-image: url(/frontend/IMAGES/project\ background.jpeg);
+    background-image: url(../images/project\ background.jpeg);
     background-size: cover;
 }
 
@@ -162,6 +201,26 @@ body {
 }
 
 /*Project images coming...*/
+
+/* PROJECTS RESPONSIVENESS */
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .project-cards {
+    grid-template-columns: 1fr; /* stack on very small screens */
+  }
+}
 
 .card h3{
     margin-top: 12px;
