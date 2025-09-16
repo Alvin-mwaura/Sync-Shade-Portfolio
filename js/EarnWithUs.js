@@ -77,3 +77,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // ID = 8–9 digits
   enforceDigits(idInput, idError, "ID number", 8, 9);
 });
+
+const submitBtn = document.getElementById("submit-btn");
+
+// Function to check overall form validity
+function checkFormValidity() {
+  const isPhoneValid = /^\d{10}$/.test(phoneInput.value);
+  const isIdValid = /^\d{8,9}$/.test(idInput.value);
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+
+  if (isPhoneValid && isIdValid && isEmailValid) {
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
+  }
+}
+
+// Run validation when fields change
+phoneInput.addEventListener("input", checkFormValidity);
+idInput.addEventListener("input", checkFormValidity);
+emailInput.addEventListener("input", checkFormValidity);

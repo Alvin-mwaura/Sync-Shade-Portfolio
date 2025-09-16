@@ -141,6 +141,11 @@ header {
   transform: translateY(0);
 }
 
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 /* Responsive tweak */
 @media (max-width: 600px) {
   .success-msg,
