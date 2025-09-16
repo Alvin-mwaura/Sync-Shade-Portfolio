@@ -1,0 +1,149 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #080808;
+  color: #ffffff;
+}
+
+/* Navbar (same vibe as Home) */
+header {
+  background: #c5ab17;
+  padding: 15px 25px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+/* Earn Section */
+.earn-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.earn-content h1 {
+  font-size: 30px;
+  color: #ff7f50;
+  margin-bottom: 20px;
+}
+
+.earn-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.earn-content li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Form Styles */
+.earn-form {
+  background: #bbb;
+  padding: 60px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.earn-form h2 {
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.earn-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.earn-form button {
+  width: 100%;
+  padding: 14px;
+  background: #ff7f50;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.earn-form button:hover {
+  background: #e6693c;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .earn-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* Success & Error Messages */
+.success-msg,
+.error-msg {
+  font-weight: 600;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Success */
+.success-msg {
+  background: #e8fce8;
+  color: #2e7d32;
+  border: 1px solid #81c784;
+}
+
+/* Error */
+.error-msg {
+  background: #ffeaea;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+/* Show message */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive tweak */
+@media (max-width: 600px) {
+  .success-msg,
+  .error-msg {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+
